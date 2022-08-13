@@ -74,3 +74,40 @@ D:\Documents\Nagp\Sessions_Taken\2. DevOps and Advanced Microservices - US\Sessi
 D:\Documents\Nagp\Sessions_Taken\2. DevOps and Advanced Microservices - US\Sessions\Session 3\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.pdb
 D:\Documents\Nagp\Sessions_Taken\2. DevOps and Advanced Microservices - US\Sessions\Session 3\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.genruntimeconfig.cache
 D:\Documents\Nagp\Sessions_Taken\2. DevOps and Advanced Microservices - US\Sessions\Session 3\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.csproj.CopyComplete
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\bin\Debug\netcoreapp3.1\nagp-devops-us.StaticWebAssets.xml
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\bin\Debug\netcoreapp3.1\nagp-devops-us.exe
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\bin\Debug\netcoreapp3.1\nagp-devops-us.deps.json
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\bin\Debug\netcoreapp3.1\nagp-devops-us.runtimeconfig.json
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\bin\Debug\netcoreapp3.1\nagp-devops-us.runtimeconfig.dev.json
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\bin\Debug\netcoreapp3.1\nagp-devops-us.dll
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\bin\Debug\netcoreapp3.1\nagp-devops-us.pdb
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\bin\Debug\netcoreapp3.1\nagp-devops-us.Views.dll
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\bin\Debug\netcoreapp3.1\nagp-devops-us.Views.pdb
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.csproj.AssemblyReference.cache
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.GeneratedMSBuildEditorConfig.editorconfig
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.AssemblyInfoInputs.cache
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.AssemblyInfo.cs
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.csproj.CoreCompileInputs.cache
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.MvcApplicationPartsAssemblyInfo.cache
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.RazorAssemblyInfo.cache
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.RazorAssemblyInfo.cs
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\staticwebassets\nagp-devops-us.StaticWebAssets.Manifest.cache
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.TagHelpers.input.cache
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.TagHelpers.output.cache
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.RazorCoreGenerate.cache
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.RazorTargetAssemblyInfo.cache
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.RazorTargetAssemblyInfo.cs
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.Views.pdb
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.dll
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.pdb
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.genruntimeconfig.cache
+C:\Divesh\Learning\Devops\NAGPAssignment\nagp-devops-us-dotnet\nagp-devops-us\obj\Debug\netcoreapp3.1\nagp-devops-us.csproj.CopyComplete

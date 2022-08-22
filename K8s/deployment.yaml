@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dotnet-webapp
+  name: i-diveshsrivastava-master
   namespace: kubernetes-cluster-diveshsrivastava
 spec:
   replicas: 4

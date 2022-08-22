@@ -1,0 +1,509 @@
+Started by user Kalp
+Obtained Jenkinsfile from git https://github.com/DiveshSrivastava/app_diveshsrivastava.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/DiveshSrivastava/app_diveshsrivastava.git # timeout=10
+Fetching upstream changes from https://github.com/DiveshSrivastava/app_diveshsrivastava.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.37.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/DiveshSrivastava/app_diveshsrivastava.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+Checking out Revision 38d133400fa111e687c3d7f4872fec4e9fd68a1d (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 38d133400fa111e687c3d7f4872fec4e9fd68a1d # timeout=10
+Commit message: "jenkins file format"
+ > git.exe rev-list --no-walk 38d133400fa111e687c3d7f4872fec4e9fd68a1d # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Nuget restore)
+[Pipeline] echo
+Cloning repository ..
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/DiveshSrivastava/app_diveshsrivastava.git # timeout=10
+Fetching upstream changes from https://github.com/DiveshSrivastava/app_diveshsrivastava.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.37.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/DiveshSrivastava/app_diveshsrivastava.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+Checking out Revision 38d133400fa111e687c3d7f4872fec4e9fd68a1d (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 38d133400fa111e687c3d7f4872fec4e9fd68a1d # timeout=10
+ > git.exe branch -a -v --no-abbrev # timeout=10
+ > git.exe branch -D master # timeout=10
+ > git.exe checkout -b master 38d133400fa111e687c3d7f4872fec4e9fd68a1d # timeout=10
+Commit message: "jenkins file format"
+[Pipeline] echo
+Clean solution
+[Pipeline] bat
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava>dotnet clean 
+Microsoft (R) Build Engine version 17.1.1+a02f73656 for .NET
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 22-08-2022 20:22:58.
+     1>Project "C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us.sln" on node 1 (Clean target(s)).
+     1>ValidateSolutionConfiguration:
+         Building solution configuration "Debug|Any CPU".
+     1>Done Building Project "C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us.sln" (Clean target(s)).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.33
+[Pipeline] echo
+Restoring packages ..
+[Pipeline] bat
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava>dotnet restore 
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Start sonarqube analysis)
+[Pipeline] echo
+Starting sonar scanning ..
+[Pipeline] bat
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava>dotnet sonarscanner begin /k:"sonar-diveshsrivastava" /d:sonar.host.url="http://localhost:9000"  /d:sonar.login="sqp_1db22bdf9921f73794fb201d3ac3926457c424c3" 
+SonarScanner for MSBuild 5.7.2
+Using the .NET Core version of the Scanner for MSBuild
+Pre-processing started.
+Preparing working directories...
+20:23:02.095  Updating build integration targets...
+20:23:02.274  Fetching analysis configuration settings...
+20:23:02.813  Provisioning analyzer assemblies for cs...
+20:23:02.814  Installing required Roslyn analyzers...
+20:23:03.085  Provisioning analyzer assemblies for vbnet...
+20:23:03.086  Installing required Roslyn analyzers...
+20:23:03.117  Pre-processing succeeded.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Code build)
+[Pipeline] echo
+Building solution ..
+[Pipeline] bat
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava>dotnet build 
+Microsoft (R) Build Engine version 17.1.1+a02f73656 for .NET
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\Program.cs(12,18): warning S1118: Add a 'protected' constructor or the 'static' keyword to the class declaration. [C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\nagp-devops-us.csproj]
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\Controllers\HomeController.cs(14,50): warning S4487: Remove this unread private field '_logger' or refactor the code to use its value. [C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\nagp-devops-us.csproj]
+  Sonar: (nagp-devops-us.csproj) Project processed successfully
+  Sonar: Preparing for Razor compilation, moved files (C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\Issues.json;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\output-cs\file-metadata.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\output-cs\log.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\output-cs\metrics.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\output-cs\symrefs.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\output-cs\token-cpd.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\output-cs\token-type.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\ProjectInfo.xml) to C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0.tmp.
+  Sonar: After Razor compilation, moved files (C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\Issues.Views.json;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\output-cs\file-metadata.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\output-cs\log.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\output-cs\metrics.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\output-cs\symrefs.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\output-cs\token-cpd.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\output-cs\token-type.pb) to C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0.Razor.
+  Sonar: After Razor compilation, moved files (C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0.tmp\Issues.json;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0.tmp\output-cs\file-metadata.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0.tmp\output-cs\log.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0.tmp\output-cs\metrics.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0.tmp\output-cs\symrefs.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0.tmp\output-cs\token-cpd.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0.tmp\output-cs\token-type.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0.tmp\ProjectInfo.xml) to C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0 and will remove the temporary folder.
+  nagp-devops-us -> C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\bin\Debug\netcoreapp3.1\nagp-devops-us.dll
+  nagp-devops-us -> C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\bin\Debug\netcoreapp3.1\nagp-devops-us.Views.dll
+  test-project -> C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\test-project\bin\Debug\netcoreapp3.1\test-project.dll
+  Sonar: (test-project.csproj) Project processed successfully
+
+Build succeeded.
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\Program.cs(12,18): warning S1118: Add a 'protected' constructor or the 'static' keyword to the class declaration. [C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\nagp-devops-us.csproj]
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\Controllers\HomeController.cs(14,50): warning S4487: Remove this unread private field '_logger' or refactor the code to use its value. [C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\nagp-devops-us.csproj]
+    2 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:06.10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test case execution)
+[Pipeline] echo
+Executing test cases..
+[Pipeline] bat
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava>dotnet test 
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\Controllers\HomeController.cs(14,50): warning S4487: Remove this unread private field '_logger' or refactor the code to use its value. [C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\nagp-devops-us.csproj]
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\Program.cs(12,18): warning S1118: Add a 'protected' constructor or the 'static' keyword to the class declaration. [C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\nagp-devops-us.csproj]
+  Sonar: (nagp-devops-us.csproj) Project processed successfully
+  Sonar: Preparing for Razor compilation, moved files (C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\Issues.json;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\output-cs\file-metadata.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\output-cs\log.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\output-cs\metrics.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\output-cs\symrefs.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\output-cs\token-cpd.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\output-cs\token-type.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\ProjectInfo.xml) to C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2.tmp.
+  Sonar: After Razor compilation, moved files (C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\Issues.Views.json;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\output-cs\file-metadata.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\output-cs\log.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\output-cs\metrics.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\output-cs\symrefs.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\output-cs\token-cpd.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\output-cs\token-type.pb) to C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2.Razor.
+  Sonar: After Razor compilation, moved files (C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2.tmp\Issues.json;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2.tmp\output-cs\file-metadata.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2.tmp\output-cs\log.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2.tmp\output-cs\metrics.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2.tmp\output-cs\symrefs.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2.tmp\output-cs\token-cpd.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2.tmp\output-cs\token-type.pb;C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2.tmp\ProjectInfo.xml) to C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2 and will remove the temporary folder.
+  nagp-devops-us -> C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\bin\Debug\netcoreapp3.1\nagp-devops-us.dll
+  nagp-devops-us -> C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us\bin\Debug\netcoreapp3.1\nagp-devops-us.Views.dll
+  test-project -> C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\test-project\bin\Debug\netcoreapp3.1\test-project.dll
+  Sonar: (test-project.csproj) Project processed successfully
+Test run for C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\test-project\bin\Debug\netcoreapp3.1\test-project.dll (.NETCoreApp,Version=v3.1)
+Microsoft (R) Test Execution Command Line Tool Version 17.1.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+coverage
+coverage
+
+Passed!  - Failed:     0, Passed:     2, Skipped:     0, Total:     2, Duration: 36 ms - test-project.dll (netcoreapp3.1)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Stop sonarqube analysis)
+[Pipeline] echo
+Stopping sonar scanning ..
+[Pipeline] bat
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava>dotnet sonarscanner end /d:sonar.login="sqp_1db22bdf9921f73794fb201d3ac3926457c424c3" 
+SonarScanner for MSBuild 5.7.2
+Using the .NET Core version of the Scanner for MSBuild
+Post-processing started.
+Calling the SonarScanner CLI...
+INFO: Scanner configuration file: C:\Users\Admin\.dotnet\tools\.store\dotnet-sonarscanner\5.7.2\dotnet-sonarscanner\5.7.2\tools\net5.0\any\sonar-scanner-4.7.0.2747\bin\..\conf\sonar-scanner.properties
+INFO: Project root configuration file: C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\sonar-project.properties
+INFO: SonarScanner 4.7.0.2747
+INFO: Java 17.0.3.1 Oracle Corporation (64-bit)
+INFO: Windows 11 10.0 amd64
+INFO: User cache: C:\Users\Admin\.sonar\cache
+INFO: Scanner configuration file: C:\Users\Admin\.dotnet\tools\.store\dotnet-sonarscanner\5.7.2\dotnet-sonarscanner\5.7.2\tools\net5.0\any\sonar-scanner-4.7.0.2747\bin\..\conf\sonar-scanner.properties
+INFO: Project root configuration file: C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\sonar-project.properties
+INFO: Analyzing on SonarQube server 9.5.0.56709
+INFO: Default locale: "en_IN", source code encoding: "windows-1252" (analysis is platform dependent)
+INFO: Load global settings
+INFO: Load global settings (done) | time=79ms
+INFO: Server id: 147B411E-AYKcNdcEEtiIT55YWsQd
+INFO: User cache: C:\Users\Admin\.sonar\cache
+INFO: Load/download plugins
+INFO: Load plugins index
+INFO: Load plugins index (done) | time=48ms
+INFO: Load/download plugins (done) | time=139ms
+INFO: Process project properties
+INFO: Process project properties (done) | time=36ms
+INFO: Execute project builders
+INFO: Execute project builders (done) | time=73ms
+INFO: Project key: sonar-diveshsrivastava
+INFO: Base dir: C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava
+INFO: Working dir: C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\.sonar
+INFO: Load project settings for component key: 'sonar-diveshsrivastava'
+INFO: Load project settings for component key: 'sonar-diveshsrivastava' (done) | time=21ms
+INFO: Auto-configuring with CI 'Jenkins'
+INFO: Load quality profiles
+INFO: Load quality profiles (done) | time=43ms
+INFO: Load active rules
+INFO: Load active rules (done) | time=2271ms
+INFO: Load analysis cache
+INFO: Load analysis cache (404) | time=21ms
+INFO: Load project repositories
+INFO: Load project repositories (done) | time=35ms
+INFO: Indexing files...
+INFO: Project configuration:
+INFO: Indexing files of module 'test-project'
+INFO:   Base dir: C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\test-project
+INFO:   Test paths: HomeControllerTests.cs
+INFO: Indexing files of module 'nagp-devops-us'
+INFO:   Base dir: C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us
+INFO:   Source paths: Controllers/HomeController.cs, Models/ErrorViewModel.cs, Prog...
+INFO: Indexing files of module 'sonar-diveshsrivastava'
+INFO:   Base dir: C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava
+INFO: 41 files indexed
+INFO: 3 files ignored because of scm ignore settings
+INFO: Quality profile for cs: Sonar way
+INFO: Quality profile for css: Sonar way
+INFO: Quality profile for js: Sonar way
+INFO: Quality profile for json: Sonar way
+INFO: Quality profile for web: Sonar way
+INFO: Quality profile for yaml: Sonar way
+INFO: ------------- Run sensors on module nagp-devops-us
+INFO: Load metrics repository
+INFO: Load metrics repository (done) | time=73ms
+INFO: Sensor JaCoCo XML Report Importer [jacoco]
+INFO: 'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+INFO: No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+INFO: Sensor JaCoCo XML Report Importer [jacoco] (done) | time=5ms
+INFO: Sensor IaC CloudFormation Sensor [iac]
+INFO: 0 source files to be analyzed
+INFO: 0/0 source files have been analyzed
+INFO: Sensor IaC CloudFormation Sensor [iac] (done) | time=48ms
+INFO: Sensor JavaScript analysis [javascript]
+INFO: 2 source files to be analyzed
+INFO: 2/2 source files have been analyzed
+INFO: Sensor JavaScript analysis [javascript] (done) | time=18253ms
+INFO: Sensor TypeScript analysis [javascript]
+INFO: No input files found for analysis
+INFO: Sensor TypeScript analysis [javascript] (done) | time=1ms
+INFO: Sensor CSS Metrics [javascript]
+INFO: Sensor CSS Metrics [javascript] (done) | time=812ms
+INFO: Sensor CSS Rules [javascript]
+INFO: 11 source files to be analyzed
+INFO: 11/11 source files have been analyzed
+INFO: Sensor CSS Rules [javascript] (done) | time=2139ms
+INFO: Sensor C# Project Type Information [csharp]
+INFO: Sensor C# Project Type Information [csharp] (done) | time=1ms
+INFO: Sensor C# Analysis Log [csharp]
+INFO: Roslyn version: 4.1.0.0
+INFO: Language version: CSharp8
+INFO: Concurrent execution: enabled
+INFO: Roslyn version: 4.1.0.0
+INFO: Language version: CSharp8
+INFO: Concurrent execution: enabled
+INFO: Roslyn version: 4.1.0.0
+INFO: Language version: CSharp8
+INFO: Concurrent execution: enabled
+INFO: Roslyn version: 4.1.0.0
+INFO: Language version: CSharp8
+INFO: Concurrent execution: enabled
+INFO: Sensor C# Analysis Log [csharp] (done) | time=11ms
+INFO: Sensor C# Properties [csharp]
+INFO: Sensor C# Properties [csharp] (done) | time=3ms
+INFO: Sensor HTML [web]
+INFO: Sensor HTML [web] (done) | time=122ms
+INFO: Sensor Text Sensor [text]
+INFO: 22 source files to be analyzed
+INFO: 22/22 source files have been analyzed
+INFO: Sensor Text Sensor [text] (done) | time=112ms
+INFO: Sensor VB.NET Project Type Information [vbnet]
+INFO: Sensor VB.NET Project Type Information [vbnet] (done) | time=1ms
+INFO: Sensor VB.NET Analysis Log [vbnet]
+INFO: Sensor VB.NET Analysis Log [vbnet] (done) | time=30ms
+INFO: Sensor VB.NET Properties [vbnet]
+INFO: Sensor VB.NET Properties [vbnet] (done) | time=0ms
+INFO: ------------- Run sensors on module test-project
+INFO: Sensor JaCoCo XML Report Importer [jacoco]
+INFO: 'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+INFO: No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+INFO: Sensor JaCoCo XML Report Importer [jacoco] (done) | time=4ms
+INFO: Sensor CSS Rules [javascript]
+INFO: No CSS, PHP, HTML or VueJS files are found in the project. CSS analysis is skipped.
+INFO: Sensor CSS Rules [javascript] (done) | time=0ms
+INFO: Sensor C# Project Type Information [csharp]
+INFO: Sensor C# Project Type Information [csharp] (done) | time=1ms
+INFO: Sensor C# Analysis Log [csharp]
+INFO: Roslyn version: 4.1.0.0
+INFO: Language version: CSharp8
+INFO: Concurrent execution: enabled
+INFO: Roslyn version: 4.1.0.0
+INFO: Language version: CSharp8
+INFO: Concurrent execution: enabled
+INFO: Sensor C# Analysis Log [csharp] (done) | time=7ms
+INFO: Sensor C# Properties [csharp]
+INFO: Sensor C# Properties [csharp] (done) | time=1ms
+INFO: Sensor Text Sensor [text]
+INFO: 1 source file to be analyzed
+INFO: 1/1 source file has been analyzed
+INFO: Sensor Text Sensor [text] (done) | time=2ms
+INFO: Sensor VB.NET Project Type Information [vbnet]
+INFO: Sensor VB.NET Project Type Information [vbnet] (done) | time=0ms
+INFO: Sensor VB.NET Analysis Log [vbnet]
+INFO: Sensor VB.NET Analysis Log [vbnet] (done) | time=0ms
+INFO: Sensor VB.NET Properties [vbnet]
+INFO: Sensor VB.NET Properties [vbnet] (done) | time=0ms
+INFO: ------------- Run sensors on module sonar-diveshsrivastava
+INFO: Sensor JaCoCo XML Report Importer [jacoco]
+INFO: 'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+INFO: No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+INFO: Sensor JaCoCo XML Report Importer [jacoco] (done) | time=1ms
+INFO: Sensor CSS Rules [javascript]
+INFO: No CSS, PHP, HTML or VueJS files are found in the project. CSS analysis is skipped.
+INFO: Sensor CSS Rules [javascript] (done) | time=0ms
+INFO: Sensor C# Project Type Information [csharp]
+INFO: Sensor C# Project Type Information [csharp] (done) | time=0ms
+INFO: Sensor C# Analysis Log [csharp]
+INFO: Sensor C# Analysis Log [csharp] (done) | time=0ms
+INFO: Sensor C# Properties [csharp]
+INFO: Sensor C# Properties [csharp] (done) | time=1ms
+INFO: Sensor Text Sensor [text]
+INFO: 0 source files to be analyzed
+INFO: 0/0 source files have been analyzed
+INFO: Sensor Text Sensor [text] (done) | time=0ms
+INFO: Sensor VB.NET Project Type Information [vbnet]
+INFO: Sensor VB.NET Project Type Information [vbnet] (done) | time=0ms
+INFO: Sensor VB.NET Analysis Log [vbnet]
+INFO: Sensor VB.NET Analysis Log [vbnet] (done) | time=0ms
+INFO: Sensor VB.NET Properties [vbnet]
+INFO: Sensor VB.NET Properties [vbnet] (done) | time=0ms
+INFO: ------------- Run sensors on project
+INFO: Sensor C# [csharp]
+INFO: Importing results from 6 proto files in 'C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0\output-cs'
+INFO: Importing results from 6 proto files in 'C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\0.Razor\output-cs'
+INFO: Importing results from 6 proto files in 'C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2\output-cs'
+INFO: Importing results from 6 proto files in 'C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\2.Razor\output-cs'
+INFO: Importing results from 6 proto files in 'C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\1\output-cs'
+INFO: Importing results from 6 proto files in 'C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\.sonarqube\out\3\output-cs'
+INFO: Importing 6 Roslyn reports
+INFO: Found 2 MSBuild C# projects: 1 MAIN project. 1 TEST project.
+INFO: Sensor C# [csharp] (done) | time=225ms
+INFO: Sensor Analysis Warnings import [csharp]
+INFO: Sensor Analysis Warnings import [csharp] (done) | time=6ms
+INFO: Sensor Zero Coverage Sensor
+INFO: Sensor Zero Coverage Sensor (done) | time=21ms
+INFO: CPD Executor 7 files had no CPD blocks
+INFO: CPD Executor Calculating CPD for 6 files
+INFO: CPD Executor CPD calculation finished (done) | time=28ms
+INFO: Analysis report generated in 160ms, dir size=702.5 kB
+INFO: Analysis report compressed in 197ms, zip size=168.7 kB
+INFO: Analysis report uploaded in 55ms
+INFO: ANALYSIS SUCCESSFUL, you can find the results at: http://localhost:9000/dashboard?id=sonar-diveshsrivastava
+INFO: Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+INFO: More about the report processing at http://localhost:9000/api/ce/task?id=AYLGC67ketf1q7ODOTzR
+INFO: Analysis total time: 38.805 s
+INFO: ------------------------------------------------------------------------
+INFO: EXECUTION SUCCESS
+INFO: ------------------------------------------------------------------------
+INFO: Total time: 40.341s
+INFO: Final Memory: 16M/60M
+INFO: ------------------------------------------------------------------------
+The SonarScanner CLI has finished
+20:23:59.703  Post-processing succeeded.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Kubernetes deployments)
+[Pipeline] echo
+Creating artifacts ..
+[Pipeline] bat
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava>cd nagp-devops-us 
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us>docker image build -t kalpdeep/i-diveshsrivastava-master:latest .  
+#1 [internal] load build definition from Dockerfile
+#1 sha256:434e2a47fe0fb0f73d05504e9a97211586b4050772659465db4abf3e455aed4c
+#1 transferring dockerfile: 625B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:1ad2be915996b41fb72e47dbacd0bc5673e5d8dbc62a86a38bfb31da38d23bfc
+#2 transferring context: 374B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:3.1
+#3 sha256:ce64eac29b07ebbf4d973b99e492aaf8ba85556a3d349a716d703b36362d10a7
+#3 DONE 0.3s
+
+#4 [internal] load metadata for mcr.microsoft.com/dotnet/aspnet:3.1
+#4 sha256:6cc59bb059858e4ec7070d9fc240ac93870aa8bdfd5679ab219e693360eb146a
+#4 DONE 0.6s
+
+#8 [build 1/7] FROM mcr.microsoft.com/dotnet/sdk:3.1@sha256:61755be2b565a90f84f17dcc9d0bc40f56f0b6c9c5a80b2f320e902fa543ffdc
+#8 sha256:adf867c3b52b1361fc0572adf87a9be0f9ab35e4a424f345e3cee21dd842e902
+#8 resolve mcr.microsoft.com/dotnet/sdk:3.1@sha256:61755be2b565a90f84f17dcc9d0bc40f56f0b6c9c5a80b2f320e902fa543ffdc 0.0s done
+#8 DONE 0.0s
+
+#5 [base 1/2] FROM mcr.microsoft.com/dotnet/aspnet:3.1@sha256:ff64b110039e488fbf0851fc4754a3de6d1ece9d033bc652f4ee2b053f1f0e4c
+#5 sha256:1ece0b9c9dc386f727ac93739f88aa9fb18a8c8a93d880fe37a355f1b27b3877
+#5 resolve mcr.microsoft.com/dotnet/aspnet:3.1@sha256:ff64b110039e488fbf0851fc4754a3de6d1ece9d033bc652f4ee2b053f1f0e4c 0.1s done
+#5 DONE 0.1s
+
+#10 [internal] load build context
+#10 sha256:798193e82c74ae4702cd1220879fd095562f2438dff26ebf423e90f9fb980a04
+#10 transferring context: 4.52MB 0.1s done
+#10 DONE 0.2s
+
+#13 [build 5/7] COPY . .
+#13 sha256:9817687ffb938ff974d4da5a016c1af246ef34ca578eff8b28e47653b8dfb7ca
+#13 CACHED
+
+#9 [build 2/7] WORKDIR /src
+#9 sha256:8479116fb3929d0c73315ad52f7ce401625295ed4f15083b953c1f36fc69f733
+#9 CACHED
+
+#16 [publish 1/1] RUN dotnet publish "nagp-devops-us.csproj" -c Release -o /app/publish /p:UseAppHost=false
+#16 sha256:d6f67fa4f6d2bcbd7b0e364b59916bc6c644f09bd128254f4aa3f2d42d4d8571
+#16 CACHED
+
+#6 [base 2/2] WORKDIR /app
+#6 sha256:cf7855635f8f605c68422c1b2599bfe9b161b7ce4b1b3bd992501fa3f68df98b
+#6 CACHED
+
+#14 [build 6/7] WORKDIR /src
+#14 sha256:17511837af699c7a04ae66aee677783366b8aad374081d38f443a19aea1fb8ed
+#14 CACHED
+
+#15 [build 7/7] RUN dotnet build "nagp-devops-us.csproj" -c Release -o /app/build
+#15 sha256:f6f4ad3665e06a1373124b3cd7ee406c48c6fedeb9a51e7cf5457ceb6d0f9db8
+#15 CACHED
+
+#7 [final 1/2] WORKDIR /app
+#7 sha256:0b34241cdd433e038a58012bde096e961b1584d5b877974f88b9e3a6c3e18078
+#7 CACHED
+
+#11 [build 3/7] COPY [nagp-devops-us.csproj, ./]
+#11 sha256:afeeee7367d6c264a1fa134c4680dda6a08426e2ce8c2ab7c923aa7e2fb265a6
+#11 CACHED
+
+#12 [build 4/7] RUN dotnet restore "nagp-devops-us.csproj"
+#12 sha256:95e016d64043cf11459332855f1852d52b6e322c625c7c546789d7bc887ba319
+#12 CACHED
+
+#17 [final 2/2] COPY --from=publish /app/publish .
+#17 sha256:1fc8777b5846470bd452f9f261a60feded07991ea5a1e99e3a0b75f05625a4c0
+#17 CACHED
+
+#18 exporting to image
+#18 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#18 exporting layers done
+#18 writing image sha256:a7f7ef1fcf9d63e771c60ed17d000008b1b60e95e2937c065389264d70269873 done
+#18 naming to docker.io/kalpdeep/i-diveshsrivastava-master:latest done
+#18 DONE 0.0s
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\nagp-devops-us>docker push kalpdeep/i-diveshsrivastava-master:latest  
+The push refers to repository [docker.io/kalpdeep/i-diveshsrivastava-master]
+be4369a3ca6b: Preparing
+5f70bf18a086: Preparing
+a74920d478bb: Preparing
+eab59045b4de: Preparing
+005581d25563: Preparing
+99f702cc7137: Preparing
+5033e326766e: Preparing
+735956b91a18: Preparing
+99f702cc7137: Waiting
+5033e326766e: Waiting
+735956b91a18: Waiting
+be4369a3ca6b: Layer already exists
+a74920d478bb: Layer already exists
+005581d25563: Layer already exists
+5f70bf18a086: Layer already exists
+eab59045b4de: Layer already exists
+99f702cc7137: Layer already exists
+5033e326766e: Layer already exists
+735956b91a18: Layer already exists
+latest: digest: sha256:4d1fafb407815e4d3f4d2357d5b0398c8345cd495862a3952e3ea04f7579215c size: 1998
+[Pipeline] bat
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava>cd K8s 
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\K8s>kubectl create -f namespace.yaml  
+Error from server (AlreadyExists): error when creating "namespace.yaml": namespaces "kubernetes-cluster-diveshsrivastava" already exists
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\K8s>kubectl apply -f configmap.yaml  
+configmap/env-configmap created
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\K8s>kubectl apply -f secrets.yaml  
+secret/env-secrets created
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\K8s>kubectl apply -f service.yaml  
+service/i-diveshsrivastava-master-service created
+
+C:\Users\Admin\AppData\Local\Jenkins\.jenkins\workspace\nagp_dotnet_diveshsrivastava\K8s>kubectl apply -f deployment.yaml  
+deployment.apps/i-diveshsrivastava-master created
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

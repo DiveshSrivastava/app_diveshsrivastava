@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet\\test-project\\test-project.csproj": {}
+    "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet-master\\test-project\\test-project.csproj": {}
   },
   "projects": {
-    "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet\\nagp-devops-us\\nagp-devops-us.csproj": {
+    "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet-master\\nagp-devops-us\\nagp-devops-us.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet\\nagp-devops-us\\nagp-devops-us.csproj",
+        "projectUniqueName": "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet-master\\nagp-devops-us\\nagp-devops-us.csproj",
         "projectName": "nagp-devops-us",
-        "projectPath": "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet\\nagp-devops-us\\nagp-devops-us.csproj",
+        "projectPath": "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet-master\\nagp-devops-us\\nagp-devops-us.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet\\nagp-devops-us\\obj\\",
+        "outputPath": "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet-master\\nagp-devops-us\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,14 +61,14 @@
         }
       }
     },
-    "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet\\test-project\\test-project.csproj": {
+    "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet-master\\test-project\\test-project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet\\test-project\\test-project.csproj",
+        "projectUniqueName": "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet-master\\test-project\\test-project.csproj",
         "projectName": "test-project",
-        "projectPath": "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet\\test-project\\test-project.csproj",
+        "projectPath": "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet-master\\test-project\\test-project.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet\\test-project\\obj\\",
+        "outputPath": "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet-master\\test-project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -85,8 +85,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet\\nagp-devops-us\\nagp-devops-us.csproj": {
-                "projectPath": "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet\\nagp-devops-us\\nagp-devops-us.csproj"
+              "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet-master\\nagp-devops-us\\nagp-devops-us.csproj": {
+                "projectPath": "C:\\Divesh\\Learning\\Devops\\NAGPAssignment\\nagp-devops-us-dotnet-master\\nagp-devops-us\\nagp-devops-us.csproj"
               }
             }
           }
@@ -142,20 +142,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.10, 3.1.10]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"

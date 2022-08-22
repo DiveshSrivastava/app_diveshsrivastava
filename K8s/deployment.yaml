@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnet-webapp
+  namespace: kubernetes-cluster-diveshsrivastava
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: i-diveshsrivastava-master
+  template:
+    metadata:
+      labels:
+        app: i-diveshsrivastava-master
+    spec:
+        containers:
+        - name: i-diveshsrivastava-master
+          image: kalpdeep/i-diveshsrivastava-master:latest
+          imagePullPolicy: Always
+          envFrom:
+          - configMapRef:
+              name: env-configmap
+          - secretRef:
+              name: env-secrets
+              
+   

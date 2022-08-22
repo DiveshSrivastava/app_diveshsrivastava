@@ -2,6 +2,16 @@ pipeline {
     agent any
 
     stages {
+        stage('clone') {
+            steps {
+                sh "echo 'cloning the source code...'"
+                git credentialsId: 'your-jenkins-global-git-credential-id', url: 'https://github.com/DiveshSrivastava/app_diveshsrivastava.git'
+                // take last version tag of the git repository
+                script { 
+                    versionTag = sh(script: "git describe --tags `git rev-list --tags --max-count=1`", returnStdout: true).trim()
+                }
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building..'

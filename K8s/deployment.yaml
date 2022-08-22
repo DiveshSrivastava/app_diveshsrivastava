@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: i-diveshsrivastava-develop
+  namespace: kubernetes-cluster-diveshsrivastava
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: i-diveshsrivastava-develop
+  template:
+    metadata:
+      labels:
+        app: i-diveshsrivastava-develop
+    spec:
+        containers:
+        - name: i-diveshsrivastava-develop
+          image: kalpdeep/i-diveshsrivastava-develop:latest
+          imagePullPolicy: Always
+          envFrom:
+          - configMapRef:
+              name: env-configmap-develop
+          - secretRef:
+              name: env-secrets-develop
+              
+   
